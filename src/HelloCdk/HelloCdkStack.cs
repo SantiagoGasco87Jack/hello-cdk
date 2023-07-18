@@ -9,7 +9,9 @@ namespace HelloCdk
         {
             new Bucket(this, "MyFirstBucket", new BucketProps
             {
-                Versioned = true
+                Versioned = true,
+                RemovalPolicy = RemovalPolicy.DESTROY,
+                AutoDeleteObjects = true
             });
         }
     }
