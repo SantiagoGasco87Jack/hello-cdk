@@ -1,13 +1,16 @@
 using Amazon.CDK;
-using Constructs;
+using Amazon.CDK.AWS.S3;
 
 namespace HelloCdk
 {
     public class HelloCdkStack : Stack
     {
-        internal HelloCdkStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
+        public HelloCdkStack(App scope, string id, IStackProps props=null) : base(scope, id, props)
         {
-            // The code that defines your stack goes here
+            new Bucket(this, "MyFirstBucket", new BucketProps
+            {
+                Versioned = true
+            });
         }
     }
 }
